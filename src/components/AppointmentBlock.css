@@ -1,0 +1,9 @@
+.AppointmentBlock {
+    background-color: aliceblue;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 15px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}

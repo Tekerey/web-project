@@ -1,0 +1,96 @@
+.AppForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.AppForm h1, .AppForm h2, .AppForm h3 {
+    text-align: center;
+}
+
+.AppForm-UpperBlock {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.AppForm-Label {
+    font-weight: bold;
+    display: block;
+    padding: 5px;
+}
+
+.AppForm-Container {
+    display: flex;
+    flex-direction: column;
+    /* background-color: ivory; */
+    padding: 10px;
+    width: 100%;
+}
+
+.AppForm-Container.Date {
+    width: 100%;
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+.AppForm-Container.Time {
+    width: 300px;
+    margin-right: 20px;
+    flex-grow: 1;
+}
+
+.AppForm-TimeSlots {
+    background-color: white;
+    height: 80px;
+    border-radius: 15px 15px 0 0;
+    border: 1px solid steelblue;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.TimeSlotButton {
+    border: 1px solid grey;
+    padding: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 400px;
+    height: 35px;
+    margin: auto 5px;
+    border-radius: 8px;
+    background-color: aliceblue;
+    transition: all 0.2s ease-in-out;
+}
+
+.TimeSlotButton:hover {
+    font-weight: bold;
+}
+
+.TimeSlotButton:disabled {
+    cursor: not-allowed;
+}
+
+.TimeSlotButton:active, .TimeSlotButton.active {
+    background-color: rgb(134, 204, 134);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 0 2px steelblue;
+}
+
+.TimeSlotButton.Booked {
+    font-weight: bold;
+    background-color: rgb(245, 113, 90);
+    color: white;
+}
+
+.AppButton {
+    max-width: 500px;
+    min-width: 300px;
+}

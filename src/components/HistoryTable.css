@@ -1,0 +1,17 @@
+.HistoryContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.History-Open, .History-Close {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.HistoryTable td {
+    padding: 5px;
+}

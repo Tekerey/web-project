@@ -1,0 +1,86 @@
+.SideMenu {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    width: 300px;
+    margin: 30px 20px;
+    margin-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 0px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px 0px steelblue;
+    overflow-y: auto;
+    position: sticky;
+    top: 90px;
+    height: 600px;
+}
+
+.SideMenu-Title {
+    text-align: center;
+    font-size: 24px;
+    color: steelblue;
+    font-weight: bolder;
+    border-bottom: 1px solid steelblue;
+    padding: 10px 0px;
+    background-color: rgba(70, 131, 180, 0.1);
+}
+
+.SMCategory-Button {
+    background: none;
+    font-size: 24px;
+    font-weight: 600;
+    color: steelblue;
+    width: 100%;
+    border: none;
+    transition: all 0.1s ease-in-out;
+    padding: 10px 0;
+    text-align: left;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.SMCategory-Button:hover {
+    border-left: 8px solid rgba(70, 131, 180, 0.5);
+    border-right: 8px solid rgba(70, 131, 180, 0.5);
+}
+
+.SMCategory-Button:active, .SMCategory-Button.active {
+    border-left: 8px solid steelblue;
+    border-right: 8px solid steelblue;
+    background-color: aliceblue;
+}
+
+.SMCategory-Menu {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    max-height: 0px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: mandatory;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.SideMenu-Item {
+    background: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: steelblue;
+    width: 100%;
+    border: none;
+    transition: all 0.1s ease-in-out;
+    padding: 10px 0;
+    text-align: left;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.SideMenu-Item:hover {
+    border-left: 4px solid rgba(70, 131, 180, 0.5);
+}
+
+.SideMenu-Item:active, .SideMenu-Item.active {
+    border-left: 4px solid steelblue;
+    background-color: aliceblue;
+}

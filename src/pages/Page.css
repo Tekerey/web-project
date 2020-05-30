@@ -1,0 +1,43 @@
+.Page {
+    padding: 20px;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px 0px steelblue;
+    flex-grow: 1;
+    height: fit-content;
+}
+
+.PageMarginContainer {
+    margin: 30px 50px;
+    flex-grow: 1;
+}
+
+.PageTitle {
+    text-align: center;
+}
+
+.LogInPage-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.PageContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.DoctorList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.ProfileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

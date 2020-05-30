@@ -1,0 +1,71 @@
+.DoctorPage {
+    padding: 10px 20px;
+}
+
+.Doctor-Info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.DoctorPage-Image {
+    max-width: 300px;
+    max-height: 300px;
+    position: relative;
+    padding-top: 100%;
+    border-radius: 50%;
+}
+
+.DoctorPage-Image img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.Doctor-Info-Left {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    min-width: 150px;
+}
+
+.Doctor-Info-Right {
+    width: 100%;
+    padding: 20px 50px;
+}
+
+.Doctor-Info-Name {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.Doctor-Info-type {
+    display: flex;
+    justify-content: space-between;
+    background-color: aliceblue;
+    padding: 5px 20px;
+    margin: 10px auto;
+    border-radius: 50px;
+}
+
+.Doctor-Info-Adress, .Doctor-Info-Desciption {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding: 5px 20px;
+    margin: 10px auto;
+    border-radius: 25px;
+}
+
+.Doctor-Info-Rating {
+    background-color: aliceblue;
+    height: 30px;
+}

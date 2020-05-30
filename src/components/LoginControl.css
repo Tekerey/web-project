@@ -1,0 +1,47 @@
+.Login-panel {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+}
+
+.Login-button {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    white-space: nowrap;
+    background-color: aliceblue;
+    padding-right: 15px;
+    height: 60%;
+    border-radius: 8px;
+    border: none;
+    margin: auto 10px;
+    font-size: 18px;
+    color: steelblue;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.Login-button:hover {
+    color: white;
+    background-color: steelblue;
+}
+
+.Login-button div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: blanchedalmond;
+}
+
+.Login-button:hover svg {
+    fill: white;
+}
+
+.Login-button svg {
+    fill: steelblue;
+    margin: 0 10px;
+    width: 15px;
+    height: 15px;
+    transition: all 0.2s ease-in-out;
+}

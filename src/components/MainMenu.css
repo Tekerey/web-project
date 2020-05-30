@@ -1,0 +1,122 @@
+.Menu-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #ececec;
+    z-index: 10;
+}
+
+.Menu-logo {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.Menu-logo img {
+    width: 40px;
+}
+
+.Main-menu {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: row;
+    transition: all 0.3s ease-in-out;
+}
+
+.Main-container:hover {
+    height: 70px;
+}
+
+.Menu-buttons {
+    display: flex;
+    height: 100%;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.Menu-buttons a, .Menu-buttons button {
+    display: flex;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    padding: 0 20px;
+    white-space: nowrap;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: steelblue;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.Menu-buttons a:hover {
+    border-bottom: 4px solid rgba(70, 131, 180, 0.5);
+}
+
+.Menu-buttons a:active, .Menu-buttons a.active {
+    border-bottom: 4px solid steelblue;
+}
+
+@media (max-width: 425px) {
+    .Menu-logo {
+        display: none;
+    }
+}
+
+.Menu-Dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.Menu-DropdownButton {
+    font-family: inherit;
+    margin: 0;
+    transition: all 0.1s ease-in-out;
+    height: 100%;
+}
+
+.Menu-Dropdown:hover .Menu-DropdownButton {
+    background-color: steelblue;
+    color: white;
+}
+
+.Menu-DropdownMenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: steelblue;
+    box-shadow: 0 3px 3px 1px steelblue;
+    transition: all 0.2s ease-in-out;
+}
+
+.Menu-DropdownMenu a {
+    /* float: none; */
+    padding: 10px 10px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s ease-in-out;
+    border: none;
+}
+
+.Menu-DropdownMenu a:hover {
+    background-color: white;
+    color: steelblue;
+    border: none;
+}
+
+.Menu-DropdownMenu a.active {
+    border: none;
+    border-left: 4px solid white;
+}
+
+.Menu-Dropdown:hover .Menu-DropdownMenu {
+    opacity: 1;
+    visibility: visible;
+}
