@@ -33,3 +33,15 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.DoctorShowcase-extraInfo {
+    padding: 15px;
+    padding-top: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.DoctorShowcase-Type {
+    font-weight: bold;
+    color: steelblue;
+}

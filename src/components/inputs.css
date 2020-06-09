@@ -120,3 +120,30 @@
 .InputCol label {
     white-space: nowrap;
 }
+
+table {
+    background-color: aliceblue;
+    margin: 10px;
+    border-radius: 10px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+thead {
+    background-color: steelblue;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+th {
+    padding: 4px;
+}

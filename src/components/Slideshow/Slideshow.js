@@ -22,10 +22,12 @@ export class Slideshow extends React.Component {
         this.slidesComponents = '';
         this.dotsComponents = '';
         this.id = '';
+        this.autoScroll = null;
     }
 
     componentDidMount() {
         this.curSlideId = this.slidesComponents[0].props.id;
+        this.autoScroll = setInterval(this.scrollRight, 4000);
     }
 
     scrollRight() {
@@ -41,7 +43,8 @@ export class Slideshow extends React.Component {
             //document.getElementById(this.curSlideId).scrollIntoView(false);
             //document.getElementById(this.curSlideId).parentElement.scrollBy(800, 0);
             curSlide.parentElement.scrollTo(curSlide.offsetLeft, 0);
-            //console.log(curSlide.offsetLeft);
+            document.querySelectorAll('.Dot').forEach(dot => dot.classList.remove('active'));
+            document.getElementById(this.curSlideId + '_dot').classList.add('active');
         }
     }
 
@@ -57,6 +60,8 @@ export class Slideshow extends React.Component {
         if (curSlide) {
             //document.getElementById(this.curSlideId).scrollIntoView(false);
             curSlide.parentElement.scrollTo(curSlide.offsetLeft, 0);
+            document.querySelectorAll('.Dot').forEach(dot => dot.classList.remove('active'));
+            document.getElementById(this.curSlideId + '_dot').classList.add('active');
         }
     }
 
@@ -64,6 +69,9 @@ export class Slideshow extends React.Component {
         const curSlide = document.getElementById(id);
         curSlide.parentElement.scrollTo(curSlide.offsetLeft, 0);
         this.curSlideId = id;
+
+        document.querySelectorAll('.Dot').forEach(dot => dot.classList.remove('active'));
+        document.getElementById(this.curSlideId + '_dot').classList.add('active');
     }
 
     render() {
@@ -81,15 +89,19 @@ export class Slideshow extends React.Component {
                     text = {slide.text}
                 />
             });
-            i = 1;
+
             this.dotsComponents = this.slidesComponents.map(slideComp => {
                 return <span key={slideComp.props.id + '_dot'} className="Dot"
+                    id={slideComp.props.id + '_dot'}
                     onClick={e => this.currentSlide(slideComp.props.id, e)}></span>
             });
         }
 
         return (
-            <div className='Slideshow-container'>
+            <div className='Slideshow-container'
+                onMouseEnter={() => clearInterval(this.autoScroll)}
+                onMouseLeave={() => this.autoScroll = setInterval(this.scrollRight, 4000)}
+            >
                 <div className='Slideshow'>
                     <button className='ScrollButton Left' onClick={this.scrollLeft}>
                         <LeftButtonIcon />

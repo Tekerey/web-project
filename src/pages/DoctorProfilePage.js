@@ -8,6 +8,7 @@ import Cookies from '../helpers/cookies';
 import '../components/HistoryTable.css';
 import moment from 'moment';
 import ReactDatePicker from 'react-datepicker';
+import Loader from '../components/Loader';
 
 class DoctorProfilePage extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class DoctorProfilePage extends React.Component {
             doctor: null,
 
             // Створення робочого дня
-            date: moment(new Date()).add(2, 'days').toDate(),
+            date: null,
             startTime: null,
             endTime: null,
             isDateSelected: true,
@@ -82,7 +83,7 @@ class DoctorProfilePage extends React.Component {
 
     reset() {
         this.setState({
-            date: moment(new Date()).add(2, 'days').toDate(),
+            date: null,
             startTime: null,
             endTime: null,
             isDateSelected: true,
@@ -211,9 +212,8 @@ class DoctorProfilePage extends React.Component {
 
     render() {
         const { isAuth, isLoaded, doctor, error, date, isWorkDayCreated,
-            isDateSelected, isStartTimeSelected, isEndTimeSelected,
             startTime, endTime, workdayError, workdayErrorText,
-            deleteDate, isDeleteDateSelected, isDeletedWorkday, deleteError } = this.state;
+            deleteDate, isDeletedWorkday, deleteError } = this.state;
 
         let content = null;
 
@@ -236,7 +236,7 @@ class DoctorProfilePage extends React.Component {
         } else if (!isAuth) {
             return <Redirect to='/' />;
         } else if (!isLoaded) {
-            content = <div>Завантаження...</div>; // Replace with loader
+            content = <Loader/>; // Replace with loader
         } else {
 
             console.log(doctor);
@@ -359,7 +359,7 @@ class DoctorProfilePage extends React.Component {
                             maxDate={moment(new Date()).add(90, 'days').toDate()}
                             excludeDates ={workingDates}
                             // highlightDates={workingDates}
-                            selected={date ? date : moment(new Date()).add(2, 'days').toDate()}
+                            selected={date ? date : null}
                             locale="uk"
                             onChange={this.selectDate}
                         />
@@ -405,7 +405,7 @@ class DoctorProfilePage extends React.Component {
                         <label>Виберіть день:</label>
                         <ReactDatePicker className='DateInput'
                             dateFormat='dd/MM/yyyy'
-                            minDate={moment(new Date()).add(2, 'days').toDate()}
+                            minDate={moment(new Date()).add(1, 'days').toDate()}
                             maxDate={moment(new Date()).add(90, 'days').toDate()}
                             includeDates={datesForDelete}
                             highlightDates={datesForDelete}

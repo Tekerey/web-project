@@ -7,6 +7,7 @@ import Breadcrumb from '../components/Breadcrumb';
 import DoctorPage from '../components/DoctorPage';
 import { withRouter } from 'react-router-dom';
 import Pagination from '../components/Pagination';
+import Loader from '../components/Loader';
 
 class DoctorsPage extends React.Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class DoctorsPage extends React.Component {
         this.showAll = this.showAll.bind(this);
         this.filterByContact = this.filterByContact.bind(this);
         this.filterByDoctorType = this.filterByDoctorType.bind(this);
+        this.sortDoctors = this.sortDoctors.bind(this);
         this.state = {
             isLoadedTypes: false,
             errorTypes: null,
@@ -24,7 +26,8 @@ class DoctorsPage extends React.Component {
             isLoadedContacts: false,
             allDoctors: null,
             visibleDoctors: null,
-            curPage: 0
+            curPage: 0,
+            sort: null,
         };
     }
 
@@ -35,6 +38,7 @@ class DoctorsPage extends React.Component {
     }
 
     showAll() {
+        if (this.state.sort) this.sort(this.state.sort, this.state.allDoctors);
         this.setState({
             visibleDoctors: this.state.allDoctors,
             curPage: 0
@@ -42,9 +46,73 @@ class DoctorsPage extends React.Component {
         this.props.history.push(`/doctors`);
     }
 
+    sort(val, doctors) {
+        switch (val) {
+            case 'name':
+                doctors.sort((a,b) => {
+                    if (a.firstName < b.firstName) return -1;
+                    else if (a.firstName > b.firstName) return 1;
+                    else return 0;
+                });
+                break;
+            case 'lastname':
+                doctors.sort((a,b) => {
+                    if (a.lastName < b.lastName) return -1;
+                    else if (a.lastName > b.lastName) return 1;
+                    else return 0;
+                });
+                break;
+            case 'price1':
+                doctors.sort((a,b) => {
+                    if (a.price < b.price) return -1;
+                    else if (a.price > b.price) return 1;
+                    else return 0;
+                });
+                break;
+            case 'price2':
+                doctors.sort((a,b) => {
+                    if (a.price < b.price) return 1;
+                    else if (a.price > b.price) return -1;
+                    else return 0;
+                });
+                break;
+            case 'years2':
+                doctors.sort((a,b) => {
+                    if (a.workingYears < b.workingYears) return 1;
+                    else if (a.workingYears > b.workingYears) return -1;
+                    else return 0;
+                });
+                break;
+            case 'years1':
+                doctors.sort((a,b) => {
+                    if (a.workingYears < b.workingYears) return -1;
+                    else if (a.workingYears > b.workingYears) return 1;
+                    else return 0;
+                });
+                break;
+            default:
+                val = null;
+                break;
+        }
+    }
+
+    sortDoctors(val) {
+        // alert(val);
+        let doctors = this.state.visibleDoctors;
+
+        this.sort(val, doctors);
+
+        this.setState({
+            visibleDoctors: doctors,
+            curPage: 0,
+            sort: val,
+        });
+    }
+
     filterByContact(id) {
         // alert(id);
         const doctors = this.state.allDoctors.filter(doc => doc.adressId === id);
+        if (this.state.sort) this.sort(this.state.sort, doctors);
         this.setState({
             visibleDoctors: doctors,
             curPage: 0
@@ -55,6 +123,7 @@ class DoctorsPage extends React.Component {
     filterByDoctorType(id) {
         //alert('sdsd');
         const doctors = this.state.allDoctors.filter(doc => doc.typeId === id);
+        if (this.state.sort) this.sort(this.state.sort, doctors);
         this.setState({
             visibleDoctors: doctors,
             curPage: 0
@@ -117,7 +186,7 @@ class DoctorsPage extends React.Component {
     render() {
         const { errorTypes, errorContacts, isLoadedTypes,
             isLoadedContacts, doctorTypes, contacts,
-            visibleDoctors, curPage } = this.state;
+            visibleDoctors, curPage, sort } = this.state;
 
         //console.log(visibleDoctors);
 
@@ -146,7 +215,7 @@ class DoctorsPage extends React.Component {
         if (errorTypes) {
             content = <div className='ErrorMessage'>Ой! Щось пішло не так, спробуйте пізніше.</div>;
         } else if (!isLoadedTypes || !isLoadedContacts) {
-            content = <div>Завантаження...</div>; // Replace with loader
+            content = <Loader/>; // Replace with loader
         } else {
             // Якщо завантажили дані без помилок
             const params = new URLSearchParams(this.props.location.search);
@@ -167,6 +236,7 @@ class DoctorsPage extends React.Component {
                 );
             } else {
                 // СПИСОК ЛІКАРІВ
+
                 //вираховуємо сторінку
                 const pages = Math.ceil(visibleDoctors.length / 12);
                 const firstItemIndex = curPage * 12;
@@ -176,7 +246,19 @@ class DoctorsPage extends React.Component {
                 content = (
                     <>
                     <h2 className='PageTitle'>Список лікарів</h2>
-                    <div className='SortingBlock'>Тут будуть інпути для сортування</div>
+                    <div className='SortingBlock'>
+                        <label><b>Сортувати за: </b></label>
+                        <select onChange={e => this.sortDoctors(e.target.value)}
+                         name='sort' id='sortDoctors' value={sort ? sort : ''}>
+                            <option hidden='hidden'></option>
+                            <option value='name'>Ім'я</option>
+                            <option value='lastname'>Прізвище</option>
+                            <option value='price1'>Вартість консультації (від меншої до більшої)</option>
+                            <option value='price2'>Вартість консультації (від більшої до меншої)</option>
+                            <option value='years2'>Стаж роботи (від більшого до меншого)</option>
+                            <option value='years1'>Стаж роботи (від меншого до більшого)</option>
+                        </select>
+                    </div>
                     <div className='DoctorList'>
                         {doctorsPerPage.map(doc => (
                             <DoctorShowcase key={doc.id} doctor={doc}

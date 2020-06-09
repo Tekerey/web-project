@@ -5,7 +5,7 @@ import Api from '../helpers/backendApi';
 import moment from 'moment';
 import ReactDatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import Cookies from '../helpers/cookies';
+// import Cookies from '../helpers/cookies';
 
 import { registerLocale } from  "react-datepicker";
 import { uk } from 'date-fns/locale';
@@ -99,6 +99,10 @@ export default class AppointmentForm extends React.Component {
             }).map(slot => {
                 return moment(slot.time).toDate();
             });
+
+            workingDates.sort((a,b) => {
+                return a - b;
+            })
 
             // Вибираємо таймслоти для відображення за поточною вибраною датою або першою робочою
             const slots = timeSlots.filter(slot => {

@@ -43,7 +43,7 @@ class MainMenu extends React.Component {
                     <MenuLogo />
                     <nav className='Menu-buttons'>
                         <NavLink exact to="/" activeClassName="active">Головна сторінка</NavLink>
-                        <NavLink to="/doctors" activeClassName="active">Лікарі</NavLink>
+                        <NavLink to="/doctors" activeClassName="active">Список лікарів</NavLink>
                         {profileButton}
                         <NavLink to="/contacts" activeClassName="active">Контакти</NavLink>
                     </nav>

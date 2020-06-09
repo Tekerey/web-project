@@ -18,6 +18,9 @@ import SignupPage from './pages/SignupPage';
 
 // Slideshow images
 import slideImg1 from './images/slide_doctors.jpg';
+import slideImg2 from './images/slide_app.jpg';
+import slideImg3 from './images/slide_3.jpg';
+
 import DoctorProfilePage from './pages/DoctorProfilePage';
 
 class App extends React.Component {
@@ -63,10 +66,10 @@ class App extends React.Component {
               <Route exact path='/signup' />
               <Route path='/profile' />
               <Route path='/'>
-                <Slideshow id='slide' slides={[
-                  {title: 'Test Title', text: 'Test article about slide.', image: slideImg1},
-                  {title: 'Test Title', text: 'Test article about slide.'},
-                  {title: 'Test Title', text: 'Test article about slide.'},
+                <Slideshow id='slideshow' slides={[
+                  {title: 'Професійні лікарі', image: slideImg1},
+                  {title: 'Швидкий запис на прийом', image: slideImg2},
+                  {title: 'Якісні поліклініки', image: slideImg3},
                 ]} />
               </Route>
             </Switch>
@@ -80,6 +83,9 @@ class App extends React.Component {
               <Switch>
                 <Redirect from='/home' to='/' />
                 <Redirect from='/index.html' to='/' />
+                {/* <Redirect exact from='/' to='/doctors' />
+                <Redirect from='/home' to='/doctors' />
+                <Redirect from='/index.html' to='/doctors' /> */}
                 <Route exact path='/'>
                   <HomePage/>
                 </Route>

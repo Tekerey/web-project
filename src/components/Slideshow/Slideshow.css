@@ -91,3 +91,18 @@ html {
     /*background-color: #717171;*/
     background-color: #bbb;
 }
+
+.Dot.active {
+    background-color: #717171;
+}
+
+.Slide-left-part {
+    position: absolute;
+    bottom: 0;
+    margin: 5%;
+    background-color: rgba(70, 131, 180, 0.8);
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+    box-shadow: 0 0 10px 1px black;
+}

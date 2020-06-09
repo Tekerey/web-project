@@ -18,7 +18,7 @@ export default class DoctorPage extends React.Component {
                             <img src={doc.photoPath ? require(`${doc.photoPath}`) : photo}
                             alt={doc.firstName + doc.lastName} />
                         </div>
-                        <div className='Doctor-Info-Rating'>Rating here</div>
+                        {/* <div className='Doctor-Info-Rating'>Rating here</div> */}
                     </div>
                     <div className='Doctor-Info-Right'>
                         <div className='Doctor-Info-Name'>
@@ -34,7 +34,8 @@ export default class DoctorPage extends React.Component {
                             <span><b>Номер телефону:</b> {adress.phone}</span>
                         </div>
                         <div className='Doctor-Info-Desciption'>
-                            <p>{doc.description}</p>
+                            {/* <p>{doc.description}</p> */}
+                            <span><b>Вартість консультації:</b> {doc.price} грн</span>
                         </div>
                     </div>
                 </div>

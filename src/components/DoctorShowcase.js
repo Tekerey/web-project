@@ -24,9 +24,10 @@ class DoctorShowcase extends React.Component {
                 </div>
                 <div className='DoctorShowcase-Info'>
                     <div className='DoctorShowcase-Name'>{`${doc.firstName} ${doc.lastName}`}</div>
-                    <div>
-                        <span>{this.props.type.typeName}</span>
-                        <span className='DoctorShowcase-Price'>{doc.comments.length} відгуків</span>
+                    <div className='DoctorShowcase-extraInfo'>
+                        <span className='DoctorShowcase-Type'>{this.props.type.typeName}</span>
+                        <span className='DoctorShowcase-Price'>
+                            <b style={{color: 'steelblue'}}>{doc.price}</b> грн</span>
                     </div>
                 </div>
             </div>

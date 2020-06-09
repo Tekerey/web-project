@@ -8,7 +8,7 @@ export default class Pagination extends React.Component {
             buttons[i] = (
             <button key={i} className={i === this.props.curPage ? 'active' : ''}
               onClick={(e) => this.props.callback(i)}>
-                {i+1}
+                {i + 1}
             </button>
             );
         }

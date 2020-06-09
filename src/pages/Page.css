@@ -41,3 +41,49 @@
     flex-direction: column;
     align-items: center;
 }
+
+.SortingBlock {
+    background-color: aliceblue;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.SortingBlock select {
+    margin: 0 10px;
+    padding: 5px;
+    border-radius: inherit;
+    color: steelblue;
+    border-color: steelblue;
+    font-size: 16px;
+}
+
+.ContactBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+.ContactMap {
+    width: 100%;
+    min-width: 150px;
+}
+
+.ContactInfo {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ContactInfo h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.ContactInfo div {
+    margin: 10px 0px;
+}

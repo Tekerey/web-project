@@ -5,6 +5,7 @@ import Api from '../helpers/backendApi';
 import { withRouter, Redirect } from 'react-router-dom';
 import Cookies from '../helpers/cookies';
 import '../components/inputs.css';
+import Loader from '../components/Loader';
 
 class ProfilePage extends React.Component {
     constructor(props) {
@@ -211,7 +212,7 @@ class ProfilePage extends React.Component {
         } else if (!isAuth) {
             return <Redirect to='/' />;
         } else if (!isLoaded) {
-            content = <div>Завантаження...</div>; // Replace with loader
+            content = <Loader/>; // Replace with loader
         } else {
             // Put here UserProfile component
             content = (

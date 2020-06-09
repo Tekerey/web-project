@@ -36,6 +36,16 @@ export default class Api {
         );
     }
 
+    static getDoctors() {
+        return fetch(this._api + 'doctors')
+        .then(
+            res => {
+                if (res.ok) return res.json();
+                else return null;
+            }
+        );
+    }
+
     static getTimeSlotsByDoctor(docId) {
         return fetch(this._api + `timeslots/doc/${Number.parseInt(docId)}`)
         .then(

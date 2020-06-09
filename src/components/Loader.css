@@ -1,0 +1,22 @@
+.loader-container {
+    /* display: none; */
+    width: 100%;
+    /* margin-bottom: 100px; */
+}
+
+.loader {
+    border: 8px solid aliceblue;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); border-top: 8px solid aliceblue; border-bottom: 16px solid steelblue; }
+    20% { transform: rotate(0deg); border-top: 8px solid aliceblue; }
+    50% { border-top: 16px solid steelblue; border-bottom: 8px solid aliceblue; }
+    80% { transform: rotate(0deg); border-bottom: 8px solid aliceblue; }
+    100% { transform: rotate(360deg); border-top: 8px solid aliceblue; border-bottom: 16px solid steelblue; }
+}

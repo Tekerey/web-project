@@ -6,6 +6,7 @@ import '../components/inputs.css';
 import { withRouter, Redirect } from 'react-router-dom';
 import Cookies from '../helpers/cookies';
 import '../components/HistoryTable.css';
+import Loader from '../components/Loader';
 import moment from 'moment';
 
 class HistoryPage extends React.Component {
@@ -93,7 +94,7 @@ class HistoryPage extends React.Component {
         } else if (!isAuth) {
             return <Redirect to='/' />;
         } else if (!isLoaded) {
-            content = <div>Завантаження...</div>; // Replace with loader
+            content = <Loader/>; // Replace with loader
         } else {
             // Open appointments
             const open = appointments.filter(app => app.status === 'open');
@@ -132,7 +133,8 @@ class HistoryPage extends React.Component {
                                     <td>{`${a.doctor.firstName} ${a.doctor.lastName}`}</td>
                                     <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
                                     <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
-                                    <td><button onClick={(e) => this.cancelAppointment(a.id)}>Відмінити</button></td>
+                                    <td><button className='SecondaryButton' style={{margin: '0'}}
+                                     onClick={(e) => this.cancelAppointment(a.id)}>Відмінити</button></td>
                                 </tr>
                             );
                         })}
@@ -153,7 +155,6 @@ class HistoryPage extends React.Component {
                                 <th>Ім'я лікаря</th>
                                 <th>Час</th>
                                 <th>Дата</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
