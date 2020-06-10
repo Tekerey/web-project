@@ -44,4 +44,27 @@
 .DoctorShowcase-Type {
     font-weight: bold;
     color: steelblue;
+    font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+    .DoctorShowcase {
+        max-width: 200px;
+    }
+
+    .DoctorShowcase-Img {
+        height: 200px;
+    }
+
+    .DoctorShowcase-Name {
+        font-size: 16px;
+    }
+
+    .DoctorShowcase-Type {
+        font-size: 14px;
+    }
+
+    .DoctorShowcase-extraInfo {
+        font-size: 14px;
+    }
 }

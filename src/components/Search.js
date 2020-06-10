@@ -97,7 +97,7 @@ class SearchBar extends React.Component {
         }
 
         return (
-            <div className='SearchContainer'>
+            <div className={this.props.mobile ? 'SearchContainer mobile' : 'SearchContainer'}>
                 <div className='SearchInputContainer'>
                     <div className='Search'>
                         <span><SearchIcon /></span>
@@ -108,7 +108,11 @@ class SearchBar extends React.Component {
                     </div>
                 </div>
                 <div className='SearchResults'>
-                    {content}
+                    <table style={{margin: '0'}}>
+                        <tbody style={{width: '100%'}}>
+                            {content}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         );
@@ -118,10 +122,10 @@ class SearchBar extends React.Component {
 class SearchResult extends React.Component {
     render() {
         return (
-            <div onClick={this.props.onClick} className='SearchResult'>
-                <span className='SearchResult-Name'>{this.props.name}</span>
-                <span className='SearchResult-Type'>{this.props.type}</span>
-            </div>
+            <tr onClick={this.props.onClick} className='SearchResult'>
+                <td className='SearchResult-Name'>{this.props.name}</td>
+                <td className='SearchResult-Type'>{this.props.type}</td>
+            </tr>
         );
     }
 }

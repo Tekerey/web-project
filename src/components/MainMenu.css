@@ -40,7 +40,11 @@
     flex: 1;
 }
 
-.Menu-buttons a, .Menu-buttons button {
+.Menu-buttons-Navs {
+    display: flex;
+}
+
+.MenuButton {
     display: flex;
     text-decoration: none;
     text-align: center;
@@ -55,15 +59,15 @@
     transition: all 0.1s ease-in-out;
 }
 
-.Menu-buttons a:hover {
+.MenuButton:hover {
     border-bottom: 4px solid rgba(70, 131, 180, 0.5);
 }
 
-.Menu-buttons a:active, .Menu-buttons a.active {
+.MenuButton:active, .MenuButton.active {
     border-bottom: 4px solid steelblue;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 655px) {
     .Menu-logo {
         display: none;
     }
@@ -75,9 +79,21 @@
 }
 
 .Menu-DropdownButton {
+    display: flex;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    padding: 0 20px;
+    white-space: nowrap;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: steelblue;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    
     font-family: inherit;
     margin: 0;
-    transition: all 0.1s ease-in-out;
     height: 100%;
 }
 
@@ -96,13 +112,20 @@
 }
 
 .Menu-DropdownMenu a {
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    white-space: nowrap;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+
     /* float: none; */
     padding: 10px 10px;
     color: white;
-    text-decoration: none;
     display: block;
     transition: all 0.2s ease-in-out;
-    border: none;
 }
 
 .Menu-DropdownMenu a:hover {
@@ -119,4 +142,118 @@
 .Menu-Dropdown:hover .Menu-DropdownMenu {
     opacity: 1;
     visibility: visible;
+}
+
+#OpenMenu {
+    display: none;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    padding: 0 20px;
+    white-space: nowrap;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: steelblue;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    
+    font-family: inherit;
+    margin: 0;
+    height: 100%;
+}
+
+
+@media (max-width: 1030px) {
+    #OpenMenu {
+        display: block;
+        font-size: 18px;
+        /* background-color: aliceblue;
+        border-radius: 50px;
+        margin: 10px; */
+    }
+    
+    .Main-menu {
+        justify-content: space-between;
+    }
+    
+    .Menu-buttons {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin: 0;
+        flex: 0;
+        z-index: 1;
+        transition: none;
+    }
+    
+    .Menu-buttons:hover #OpenMenu {
+        background-color: steelblue;
+        color: white;
+    }
+    
+    .Menu-buttons:hover .Menu-buttons-Navs {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .Menu-buttons-Navs {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin-top: 60px;
+        border: 1px solid steelblue;
+        background-color: white;
+        transition: none;
+    }
+    
+    .MenuButton, .Menu-DropdownButton {
+        min-height: 60px;
+        width: 100%;
+    }
+    
+    .MenuButton:hover {
+        border-left: 6px solid rgba(70, 131, 180, 0.5);
+        border-bottom: none;
+    }
+    
+    .MenuButton:active, .MenuButton.active {
+        border-left: 6px solid steelblue;
+        border-bottom: none;
+    }
+    
+    .Menu-Dropdown {
+        display: flex;
+        flex-direction: column;
+        transition: none;
+    }
+    
+    .Menu-DropdownButton {
+        display: none;
+    }
+    
+    .Menu-DropdownMenu {
+        opacity: 1;
+        visibility: inherit;
+        position: relative;
+        background-color: steelblue;
+        box-shadow: 0 3px 3px 1px steelblue;
+        border: 1px solid steelblue;
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .MenuButton, .Menu-DropdownButton {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        min-height: 0;
+        font-size: 16px;
+    }
+
+    .Menu-DropdownMenu a {
+        font-size: 16px;
+    }
 }

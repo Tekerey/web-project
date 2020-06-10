@@ -87,7 +87,7 @@ class App extends React.Component {
                 <Redirect from='/home' to='/doctors' />
                 <Redirect from='/index.html' to='/doctors' /> */}
                 <Route exact path='/'>
-                  <HomePage/>
+                  <HomePage isLoggedIn={this.state.isLoggedIn}/>
                 </Route>
                 <Route path='/doctors'>
                   <DoctorsPage/>

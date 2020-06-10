@@ -107,6 +107,7 @@
 .InputRow {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -121,12 +122,18 @@
     white-space: nowrap;
 }
 
+.tableOverflowContainer {
+    width: 100%;
+    overflow-x: auto;
+    margin: 10px;
+}
+
 table {
     background-color: aliceblue;
-    margin: 10px;
     border-radius: 10px;
     border-collapse: collapse;
     border-spacing: 0px;
+    width: 100%;
 }
 
 thead {
@@ -147,3 +154,4 @@ th:last-child {
 th {
     padding: 4px;
 }
+

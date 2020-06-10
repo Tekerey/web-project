@@ -115,31 +115,33 @@ class HistoryPage extends React.Component {
                 openTable = (
                     <>
                     <h3>Поточні записи</h3>
-                    <table className='HistoryTable'>
-                        <thead>
-                            <tr>
-                                <th>Спеціальність лікаря</th>
-                                <th>Ім'я лікаря</th>
-                                <th>Час</th>
-                                <th>Дата</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {open.map(a => {
-                            return (
-                                <tr key={a.id}>
-                                    <td>{a.doctor.type.typeName}</td>
-                                    <td>{`${a.doctor.firstName} ${a.doctor.lastName}`}</td>
-                                    <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
-                                    <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
-                                    <td><button className='SecondaryButton' style={{margin: '0'}}
-                                     onClick={(e) => this.cancelAppointment(a.id)}>Відмінити</button></td>
+                    <div className='tableOverflowContainer'>
+                        <table className='HistoryTable'>
+                            <thead>
+                                <tr>
+                                    <th>Спеціальність лікаря</th>
+                                    <th>Ім'я лікаря</th>
+                                    <th>Час</th>
+                                    <th>Дата</th>
+                                    <th></th>
                                 </tr>
-                            );
-                        })}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {open.map(a => {
+                                return (
+                                    <tr key={a.id}>
+                                        <td>{a.doctor.type.typeName}</td>
+                                        <td>{`${a.doctor.firstName} ${a.doctor.lastName}`}</td>
+                                        <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
+                                        <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
+                                        <td><button className='SecondaryButton' style={{margin: '0'}}
+                                        onClick={(e) => this.cancelAppointment(a.id)}>Відмінити</button></td>
+                                    </tr>
+                                );
+                            })}
+                            </tbody>
+                        </table>
+                    </div>
                     </>
                 );
             } else openTable = <h3>Поточні записи відсутні.</h3>
@@ -148,28 +150,30 @@ class HistoryPage extends React.Component {
                 closeTable = (
                     <>
                     <h3>Пройдені записи</h3>
-                    <table className='HistoryTable'>
-                        <thead>
-                            <tr>
-                                <th>Спеціальність лікаря</th>
-                                <th>Ім'я лікаря</th>
-                                <th>Час</th>
-                                <th>Дата</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {close.map(a => {
-                            return (
-                                <tr key={a.id}>
-                                    <td>{a.doctor.type.typeName}</td>
-                                    <td>{`${a.doctor.firstName} ${a.doctor.lastName}`}</td>
-                                    <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
-                                    <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
+                    <div className='tableOverflowContainer'>
+                        <table className='HistoryTable'>
+                            <thead>
+                                <tr>
+                                    <th>Спеціальність лікаря</th>
+                                    <th>Ім'я лікаря</th>
+                                    <th>Час</th>
+                                    <th>Дата</th>
                                 </tr>
-                            );
-                        })}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {close.map(a => {
+                                return (
+                                    <tr key={a.id}>
+                                        <td>{a.doctor.type.typeName}</td>
+                                        <td>{`${a.doctor.firstName} ${a.doctor.lastName}`}</td>
+                                        <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
+                                        <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
+                                    </tr>
+                                );
+                            })}
+                            </tbody>
+                        </table>
+                    </div>
                     </>
                 );
             } else closeTable = <h3>Пройдені записи відсутні.</h3>

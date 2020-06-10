@@ -260,28 +260,30 @@ class DoctorProfilePage extends React.Component {
                 openTable = (
                     <>
                     <h3>Поточні записи</h3>
-                    <table className='HistoryTable'>
-                        <thead>
-                            <tr>
-                                <th>Ім'я пацієнта</th>
-                                <th>Номер телефону</th>
-                                <th>Час</th>
-                                <th>Дата</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {open.map(a => {
-                            return (
-                                <tr key={a.id}>
-                                    <td>{`${a.user.firstName} ${a.user.lastName}`}</td>
-                                    <td>{a.user.phone}</td>
-                                    <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
-                                    <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
+                    <div className='tableOverflowContainer'>
+                        <table className='HistoryTable'>
+                            <thead>
+                                <tr>
+                                    <th>Ім'я пацієнта</th>
+                                    <th>Номер телефону</th>
+                                    <th>Час</th>
+                                    <th>Дата</th>
                                 </tr>
-                            );
-                        })}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {open.map(a => {
+                                return (
+                                    <tr key={a.id}>
+                                        <td>{`${a.user.firstName} ${a.user.lastName}`}</td>
+                                        <td>{a.user.phone}</td>
+                                        <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
+                                        <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
+                                    </tr>
+                                );
+                            })}
+                            </tbody>
+                        </table>
+                    </div>
                     </>
                 );
             } else openTable = <h3>Поточні записи відсутні.</h3>
@@ -290,28 +292,30 @@ class DoctorProfilePage extends React.Component {
                 closeTable = (
                     <>
                     <h3>Пройдені записи</h3>
-                    <table className='HistoryTable'>
-                        <thead>
-                            <tr>
-                                <th>Ім'я пацієнта</th>
-                                <th>Номер телефону</th>
-                                <th>Час</th>
-                                <th>Дата</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {close.map(a => {
-                            return (
-                                <tr key={a.id}>
-                                    <td>{`${a.user.firstName} ${a.user.lastName}`}</td>
-                                    <td>{a.user.phone}</td>
-                                    <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
-                                    <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
+                    <div className='tableOverflowContainer'>
+                        <table className='HistoryTable'>
+                            <thead>
+                                <tr>
+                                    <th>Ім'я пацієнта</th>
+                                    <th>Номер телефону</th>
+                                    <th>Час</th>
+                                    <th>Дата</th>
                                 </tr>
-                            );
-                        })}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {close.map(a => {
+                                return (
+                                    <tr key={a.id}>
+                                        <td>{`${a.user.firstName} ${a.user.lastName}`}</td>
+                                        <td>{a.user.phone}</td>
+                                        <td>{moment(a.timeSlot.time).format('HH:mm')}</td>
+                                        <td>{moment(a.timeSlot.time).format('DD.MM.YYYY')}</td>
+                                    </tr>
+                                );
+                            })}
+                            </tbody>
+                        </table>
+                    </div>
                     </>
                 );
             } else closeTable = <h3>Пройдені записи відсутні.</h3>
@@ -351,7 +355,8 @@ class DoctorProfilePage extends React.Component {
                 {/* Створення робочих днів */}
                 <div className='HistoryContainer'>
                     <h2>Додати робочий день</h2>
-                    <form onSubmit={this.createWorkDay} className='InputForm' style={{alignItems: 'center'}}>
+                    <form onSubmit={this.createWorkDay} className='InputForm' style={{alignItems: 'center',
+                    maxWidth: '100%'}}>
                         <label>Виберіть день:</label>
                         <ReactDatePicker className='DateInput'
                             dateFormat='dd/MM/yyyy'

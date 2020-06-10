@@ -94,3 +94,39 @@
     max-width: 500px;
     min-width: 300px;
 }
+
+@media (max-width: 935px) {
+    .AppForm-UpperBlock {
+        flex-direction: column;
+    }
+
+    .AppForm-Container.Date, .AppForm-Container.Time {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .AppForm-TimeSlots {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 400px;
+    }
+
+    .AppForm-Container.Time {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .TimeSlotButton {
+        margin: 5px;
+        width: 100%;
+        max-width: 200px;
+        min-width: 50px;
+    }
+
+    .AppButton {
+        width: 100%;
+        min-width: 50px;
+    }
+}

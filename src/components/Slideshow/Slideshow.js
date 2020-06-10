@@ -30,6 +30,10 @@ export class Slideshow extends React.Component {
         this.autoScroll = setInterval(this.scrollRight, 4000);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.autoScroll);
+    }
+
     scrollRight() {
         if (this.curSlideId === this.slideCount + this.id) {
             this.curSlideId = this.slidesComponents[0].props.id;

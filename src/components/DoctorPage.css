@@ -69,3 +69,21 @@
     background-color: aliceblue;
     height: 30px;
 }
+
+@media (max-width: 1050px) {
+    .Doctor-Info {
+        flex-direction: column;
+    }
+
+    .Doctor-Info-Left {
+        align-self: center;
+    }
+
+    .Doctor-Info-Right {
+        padding: 20px 0;
+    }
+
+    .Doctor-Info-type {
+        flex-direction: column;
+    }
+}

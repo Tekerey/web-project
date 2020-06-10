@@ -84,3 +84,20 @@
     border-left: 4px solid steelblue;
     background-color: aliceblue;
 }
+
+@media (max-width: 870px) {
+    .SideMenu {
+        position: static;
+        align-self: center;
+        height: 400px;
+        margin: 10px;
+    }
+
+    .SMCategory-Button {
+        font-size: 20px;
+    }
+
+    .SideMenu-Item {
+        font-size: 12px;
+    }
+}

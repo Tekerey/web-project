@@ -13,6 +13,18 @@
     flex-grow: 1;
 }
 
+@media (max-width: 768px) {
+    .PageMarginContainer {
+        margin: 20px 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .PageMarginContainer {
+        margin: 20px 5px;
+    }
+}
+
 .PageTitle {
     text-align: center;
 }
@@ -58,6 +70,32 @@
     font-size: 16px;
 }
 
+@media (max-width: 510px) {
+    .SortingBlock {
+        background-color: aliceblue;
+        padding: 5px;
+        margin: 0;
+        border-radius: 10px;
+    }
+    
+    .SortingBlock select {
+        margin: 0;
+        padding: 5px;
+        border-radius: inherit;
+        color: steelblue;
+        border-color: steelblue;
+        font-size: 14px;
+        text-overflow: ellipsis;
+        white-space: pre;
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    .Page {
+        padding: 10px;
+    }
+}
+
 .ContactBlock {
     display: flex;
     flex-direction: row;
@@ -86,4 +124,14 @@
 
 .ContactInfo div {
     margin: 10px 0px;
+}
+
+@media (max-width: 870px) {
+    .PageContainer {
+        flex-direction: column;
+    }
+
+    .PageMarginContainer {
+        margin: 10px;
+    }
 }

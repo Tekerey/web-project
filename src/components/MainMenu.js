@@ -42,15 +42,19 @@ class MainMenu extends React.Component {
                 <div className='Main-menu'>
                     <MenuLogo />
                     <nav className='Menu-buttons'>
-                        <NavLink exact to="/" activeClassName="active">Головна сторінка</NavLink>
-                        <NavLink to="/doctors" activeClassName="active">Список лікарів</NavLink>
-                        {profileButton}
-                        <NavLink to="/contacts" activeClassName="active">Контакти</NavLink>
+                        <button id='OpenMenu'>Меню</button>
+                        <div className='Menu-buttons-Navs'>
+                            <NavLink className='MenuButton' exact to="/" activeClassName="active">Головна сторінка</NavLink>
+                            <NavLink className='MenuButton' to="/doctors" activeClassName="active">Список лікарів</NavLink>
+                            {profileButton}
+                            <NavLink className='MenuButton' to="/contacts" activeClassName="active">Контакти</NavLink>
+                        </div>
                     </nav>
                     <SearchBar />
                     <LoginControl isLoggedIn={this.props.loginControl.isLoggedIn}
                      onLogOut={this.onLogOut} />
                 </div>
+                <SearchBar mobile={true} />
             </div>
         );
     }
